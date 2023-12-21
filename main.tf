@@ -6,7 +6,14 @@ terraform {
     }
   }
 }
-
+terraform {
+  backend "s3" {
+    encrypt = true
+    bucket = "backend555"
+    key = "aws/workshop/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
 provider "aws" {
   # Configuration options
   # WORKSHOP: Specify the region you like to use, especially if you plan on using your keypair to access your EC2 instance.
